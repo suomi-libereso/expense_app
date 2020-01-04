@@ -15,10 +15,12 @@ gem 'jquery-turbolinks'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 
+
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'rspec-rails', '~> 3.6.0'
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
@@ -30,6 +32,9 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'webdrivers'
+  gem 'launchy', '~> 2.4.3'
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
