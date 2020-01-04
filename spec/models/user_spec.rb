@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
       name: "鈴木花子",
       email: "hanako@example.com",
       password: "password",
+      admin: true
       )
   end
   # 以下の条件をクリアすればユーザーは有効
@@ -17,6 +18,14 @@ RSpec.describe User, type: :model do
   it "is valid with name,email,password
   and valid email password" do
       expect(@user).to be_valid
+  end
+  # ファクトリで関連するデータを生成する
+  it "generates associated data from a factory" do
+      user = FactoryBot.create(:user)
+      puts "This user's organization is #{user.organization.inspect}"
+      puts "This user is admin:#{user.admin}"
+      other_user = FactoryBot.create(:user, :not_admin)
+      puts "This user's name #{other_user.name},admin:#{other_user.admin}"
   end
   context "name" do
     # name がなければ無効な状態であること
