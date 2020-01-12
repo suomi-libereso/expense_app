@@ -17,6 +17,6 @@ RSpec.describe Organization, type: :model do
     organization = FactoryBot.build(:organization, name:nil)
     #organization = Organization.new(name: nil)
     organization.valid?
-    expect(organization.errors[:name]).to include("can't be blank")
+    expect(organization.errors[:name]).to include("を入力してください")
   end
 end
