@@ -1,7 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
-  xscenario "user creates a　new user" do
+RSpec.feature "user_signup", type: :feature do
+  #管理ユーザーが新しいユーザーを作成する
+  xscenario "admin_user creates a　new user" do
       visit 'users/signup'
       fill_in "Name", with: '鈴木花子'
       fill_in "Email", with: 'hanako@example.com'

@@ -1,0 +1,15 @@
+<h1>ログイン</h1>
+<div>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email,id: "user_email_login", class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password,id: "user_password_login", class: 'form-control' %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>初めての方は事業所登録してください <%= link_to "事業所新規登録", new_organization_path %></p>
+  </div>

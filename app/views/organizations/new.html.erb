@@ -1,21 +1,25 @@
 <h2>事業所新規登録</h2>
 
 
-<%= form_for(@organization, url: organizations_signup_path) do |f| %>
+<%= form_for(@organization) do |f| %>
+  <%= render 'shared/error_messages' %>
   <div class="organization_field">
     <%= f.label :name ,"会社名"%>
-    <%= f.text_field :name ,id: "organization_name"%>
+    <%= f.text_field :name ,id: "organization_name", class: 'form-control' %>
   </div>
   <%= f.fields_for :users do |i| %>
     <div class="user_field">
       <%= i.label :name ,"ユーザー名（管理者ユーザー）"%>
-      <%= i.text_field :name ,id: "adminuser_name"%>
+      <%= i.text_field :name ,id: "adminuser_name", class: 'form-control' %>
 
       <%= i.label :email ,"メールアドレス"%>
-      <%= i.email_field :email ,id: "adminuser_email"%>
+      <%= i.email_field :email ,id: "adminuser_email", class: 'form-control' %>
 
       <%= i.label :password ,"パスワード"%>
-      <%= i.password_field :password ,id: "adminuser_password"%>
+      <%= i.password_field :password ,id: "adminuser_password", class: 'form-control' %>
+      
+      <%= i.label :password ,"パスワード確認"%>
+      <%= i.password_field :password_confirmation ,id: "adminuser_password_confirmation", class: 'form-control' %>
       
       <%= i.hidden_field :admin, :value =>true%>
     </div>
