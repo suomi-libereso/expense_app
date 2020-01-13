@@ -12,6 +12,11 @@ module SessionsHelper
     end
   end
   
+  # current_userのorganizationが一致しているか確認
+    def current_organization?(organization)
+      current_user.organization_id == organization.id
+    end
+  
    # 現在のユーザーをログアウトする
   def log_out
     session.delete(:user_id)

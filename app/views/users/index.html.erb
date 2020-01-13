@@ -1,4 +1,7 @@
 <h1>社員一覧</h1>
+<% if current_user.admin? && current_organization?(@organization) %>
+<%= link_to "新規社員登録" , new_organization_user_path %>
+<% end %>
 
 <%= will_paginate %>
 

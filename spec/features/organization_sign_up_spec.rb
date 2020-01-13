@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.feature "organization_signup", type: :feature do
   # ユーザーは新しい organization と adminuser を作成する
   scenario "user creates a new organization and new adminuser" do
-      visit 'organizations/new'
+      visit  new_organization_path
+      #visit 'organizations/new'
       fill_in "organization_name", with: '鈴木商店株式会社'
       fill_in "adminuser_name", with: '鈴木花子'
       fill_in "adminuser_email", with: 'hanako@example.com'
