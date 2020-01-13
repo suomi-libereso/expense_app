@@ -1,20 +1,30 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
-<%= form_for(@user, url: users_signup_path) do |f| %>
+<h1>社員登録</h1>
 
+<%= form_for([ @organization, @user] ) do |f| %>
+  <%= render 'shared/user_error_messages' %>
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label :name ,"ユーザー名"%>
     <%= f.text_field :name, class: "form-control", id: :user_name %>
   </div>
   
   <div class="form-group">
-    <%= f.label :email %>
+    <%= f.label :email ,"メールアドレス"%>
     <%= f.text_field :email, class: "form-control", id: :user_email %>
   </div>
   
   <div class="form-group">
-    <%= f.label :password %>
-    <%= f.text_field :password, class: "form-control", id: :user_password %>
+    <%= f.label :password ,"パスワード"%>
+    <%= f.password_field :password, class: "form-control", id: :user_password %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :password ,"パスワード確認"%>
+    <%= f.password_field :password_confirmation, class: "form-control", id: :user_password_confirmation %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :admin,"管理者権限"%>
+    <%= f.select :admin,[["あり", true], ["なし",false]],id: :user_admin%>
   </div>
 
   <div class="actions">

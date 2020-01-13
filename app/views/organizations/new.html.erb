@@ -2,7 +2,7 @@
 
 
 <%= form_for(@organization) do |f| %>
-  <%= render 'shared/error_messages' %>
+  <%= render 'shared/organization_error_messages' %>
   <div class="organization_field">
     <%= f.label :name ,"会社名"%>
     <%= f.text_field :name ,id: "organization_name", class: 'form-control' %>
