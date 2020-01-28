@@ -1,0 +1,8 @@
+<h2>申請一覧</h2>
+<% if @organization.requests.any? %>
+      <ol class="requests">
+        <%= render partial: 'requests/request', collection: @requests , as: :request %>
+        
+      </ol>
+      <%= will_paginate @requests %>
+    <% end %>

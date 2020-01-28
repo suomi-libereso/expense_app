@@ -1,7 +1,7 @@
 <h1>社員登録</h1>
 
 <%= form_for([ @organization, @user] ) do |f| %>
-  <%= render 'shared/user_error_messages' %>
+  <%= render 'shared/error_messages', object: @user %>
   <div class="form-group">
     <%= f.label :name ,"ユーザー名"%>
     <%= f.text_field :name, class: "form-control", id: :user_name %>

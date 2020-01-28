@@ -1,0 +1,29 @@
+<h1>電車賃申請画面</h1>
+
+<%= form_for([ @organization, @user, @train_fare] ) do |f| %>
+  <%= render 'shared/error_messages', object: @train_fare %>
+  <div class="form-group">
+    <%= f.label :entarting_station ,"乗車駅"%>
+    <%= f.text_field :entarting_station, class: "form-control", id: :train_fares_entarting_station %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :via_station ,"経由駅"%>
+    <%= f.text_field :via_station, class: "form-control", id: :train_fares_via_station %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :gettingoff_station ,"降車駅"%>
+    <%= f.text_field :gettingoff_station, class: "form-control", id: :train_fares_gettingoff_station_station %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :amount ,"金額"%>
+    <%= f.text_field :amount, class: "form-control", id: :train_fares_amount %>
+  </div>
+    <%= f.hidden_field :type, :value =>'TrainFare'%>
+  
+  <div class="actions">
+    <%= f.submit "申請" %>
+  </div>
+<% end %>

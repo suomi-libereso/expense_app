@@ -1,0 +1,12 @@
+<li id="request-<%= request.id %>">
+  <span class="content">
+    <%= request.id %>
+    <%= request.created_at.strftime('%Y/%m/%d') %>
+    <%= request.user.name %>
+    <%= request.description %>
+    <%= request.amount %>
+    <%= request.status %>
+    <%= request.approval %>
+  </span>
+  
+</li>

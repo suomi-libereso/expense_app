@@ -22,6 +22,16 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    # current_userのorganizationが一致していなければリダイレクトさせる
+    def correct_user
+      @organization = Organization.find(params[:organization_id])
+      @user = User.find(params[:user_id])
+      unless current_organization?(@organization) && current_user?(@user)
+      flash[:danger] = "アクセスできないページです"
+      redirect_to(root_url)
+      end
+    end
+    
     # current_userがorganizationのadmin_userでなければリダイレクトさせる
     def admin_user
       @organization = Organization.find(params[:organization_id])

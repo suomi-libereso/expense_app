@@ -1,0 +1,2 @@
+module EatingEntertainmentFeesHelper
+end

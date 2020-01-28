@@ -1,0 +1,19 @@
+<h1>接待交際費（飲食）申請画面</h1>
+
+<%= form_for([ @organization, @user, @eating_entertainment_fee] ) do |f| %>
+  <%= render 'shared/error_messages' , object: @eating_entertainment_fee%>
+  <div class="form-group">
+    <%= f.label :number_of_people ,"人数"%>
+    <%= f.text_field :number_of_people, class: "form-control", id: :eating_entertainment_fee_number_of_people %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :amount ,"金額"%>
+    <%= f.text_field :amount, class: "form-control", id: :eating_entertainment_fee_amount %>
+  </div>
+    <%= f.hidden_field :type, :value =>'EatingEntertainmentFee'%>
+  
+  <div class="actions">
+    <%= f.submit "申請" %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<h1>研修費申請画面</h1>
+
+<%= form_for([ @organization, @user, @training_fee] ) do |f| %>
+  <%= render 'shared/error_messages', object: @training_fee %>
+  <div class="form-group">
+    <%= f.label :amount ,"金額"%>
+    <%= f.text_field :amount, class: "form-control", id: :training_fees_amount %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :description ,"内容"%>
+    <%= f.text_field :description, class: "form-control", id: :training_fees_description %>
+  </div>
+  
+    <%= f.hidden_field :type, :value =>'TrainingFee'%>
+  
+  <div class="actions">
+    <%= f.submit "申請" %>
+  </div>
+<% end %>

@@ -1,4 +1,8 @@
 class OrganizationsController < ApplicationController
+  #before_action :logged_in_user, expect: [:new, :create]
+  before_action :logged_in_user, only: [:organization_requests_index]
+  before_action :correct_organization , only: [:organization_requests_index]
+  
   def new
   @organization=Organization.new
   @user = @organization.users.build
@@ -22,6 +26,12 @@ class OrganizationsController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def organization_requests_index
+    @organization = Organization.find(params[:id])
+    @requests = @organization.requests.paginate(page: params[:page], per_page: 20)
+    
   end
   
   
