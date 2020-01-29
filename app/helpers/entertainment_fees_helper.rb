@@ -1,0 +1,2 @@
+module EntertainmentFeesHelper
+end

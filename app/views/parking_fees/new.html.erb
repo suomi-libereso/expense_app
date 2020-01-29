@@ -1,0 +1,15 @@
+<h1>駐車場代申請画面</h1>
+
+<%= form_for([ @organization, @user, @parking_fee] ) do |f| %>
+  <%= render 'shared/error_messages', object: @parking_fee %>
+  
+  <div class="form-group">
+    <%= f.label :amount ,"金額"%>
+    <%= f.text_field :amount, class: "form-control", id: :parking_fees_amount %>
+  </div>
+    <%= f.hidden_field :type, :value =>'ParkingFee'%>
+  
+  <div class="actions">
+    <%= f.submit "申請" %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<% if @train_fare.errors.any? %>
+  <div class="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@train_fare.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @train_fare.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

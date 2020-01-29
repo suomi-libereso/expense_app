@@ -38,7 +38,7 @@ describe "user_login", type: :feature do
     end
   end
   
-  xit "login with remembering" do 
+  it "login with remembering" do 
     visit '/login'
       fill_in "user_email_login", with: @user.email
       fill_in "user_password_login", with: @user.password
@@ -56,7 +56,7 @@ describe "user_login", type: :feature do
       #expect(response.cookies.signed[:user_id]).to eq @user.id
       #expect(response.cookies['remember_token']).to_not eq nil
       #remember_digestがnilでないことを確認する
-      expect(@user.remember_digest).not_to be nil
+      expect(User.find(@user.id).remember_digest).not_to be nil
   end
   
   it "login without remembering" do
@@ -69,8 +69,7 @@ describe "user_login", type: :feature do
       
       click_button "ログイン"
       
-      
-      expect(@user.remember_digest).to be nil
+      expect(User.find(@user.id).remember_digest).to be nil
       
       #cookieがnilであることを確認する
       #expect(response.cookies['sample']).to eq 'ok'

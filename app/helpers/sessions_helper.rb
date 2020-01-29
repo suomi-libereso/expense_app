@@ -29,6 +29,11 @@ module SessionsHelper
     def current_organization?(organization)
       current_user.organization_id == organization.id
     end
+    
+  # current_userのuserが一致しているか確認
+    def current_user?(user)
+      current_user.id == user.id
+    end
   
   # ユーザーがログインしていればtrue、その他ならfalseを返す
   def logged_in?

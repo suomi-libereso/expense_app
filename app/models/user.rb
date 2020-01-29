@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :requests, dependent: :destroy,inverse_of: :user
+  has_many :train_fares
   attr_accessor :remember_token
   belongs_to :organization
   before_save   :downcase_email
